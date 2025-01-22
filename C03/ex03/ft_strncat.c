@@ -29,11 +29,11 @@ char 	*ft_strncat(char *dest, char *src, unsigned int nb)
 		return (dest);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	char	src[] = "Joel";
 	char	dest[] = "Ola ";
 
 	printf("%s", ft_strncat(dest, src, 4));
 	return (0);
-}
+}*/
