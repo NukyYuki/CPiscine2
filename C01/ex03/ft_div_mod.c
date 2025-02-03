@@ -1,46 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 09:59:10 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/23 15:33:02 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/17 20:37:36 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/18 12:25:31 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-char	*ft_strstr(char *str, char *to_find)
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i] != '\0')
-	{
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
-		{
-			j++;
-		}
-		if (to_find[j] == '\0')
-		{
-			return (str + i);
-		}
-		i++;
-		j = 0;
-	}
-	return (0);
+	*div = a / b;
+	*mod = a % b;
 }
 
 /*int	main(void)
 {
-	char	str1[] = "o que se passou aqui";
-	char	str2[] = "passou";
-	printf("%s", ft_strstr(str1, str2));
+	int	a;
+	int	b;
+	int	div;
+	int	mod;
+
+	a = 15;
+	b = 7;
+	ft_div_mod(a, b, &div, &mod);
+	printf("%d	%d", div, mod);
 	return (0);
 }*/

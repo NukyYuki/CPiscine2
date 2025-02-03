@@ -1,52 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:14:16 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/21 18:30:36 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/25 14:49:06 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/25 16:03:56 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <string.h>*/
+#include <unistd.h>
 
-int	ft_strlen(char *str)
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != 0)
+	while (str[i])
 	{
+		write(1, &str[i], 1);
 		i++;
 	}
-	return (i);
+	write(1, "\n", 1);
 }
 
-char	*ft_strcat(char *dest, char *src)
+int	main(int ac, char **av)
 {
 	int	i;
-	int	dest_len;
+	int	temp;
 
-	i = 0;
-	dest_len = ft_strlen(dest);
-	while (src[i] != 0)
+	i = 1;
+	temp = -1;
+	ac--;
+	while (i < ac)
 	{
-		dest[dest_len + i] = src[i];
+		av[temp] = av[i];
+		av[i] = av[ac];
+		av[ac] = av[temp];
+		i++;
+		ac--;
+	}
+	i = 1;
+	while (av[i])
+	{
+		ft_putstr(av[i]);
 		i++;
 	}
-	dest[dest_len + i] = '\0';
-	return (dest);
+	return (0);
 }
-
-/*int	main(void)
-{
-	char	str1[8] = " o juiz";
-	char	str2[40] = "sou eu";
-
-	printf("%s %s\n", str2, str1);
-	ft_strcat(str2, str1);
-	printf("%s", str2);
-}*/

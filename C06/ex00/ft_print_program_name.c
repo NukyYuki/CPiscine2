@@ -1,46 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 09:59:10 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/23 15:33:02 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/25 13:48:46 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/25 14:45:53 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find)
+int	main(int ac, char **av)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i] != '\0')
+	if (ac > 0)
 	{
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
+		while (av[0][i])
 		{
-			j++;
+			write(1, &av[0][i], 1);
+			i++;
 		}
-		if (to_find[j] == '\0')
-		{
-			return (str + i);
-		}
-		i++;
-		j = 0;
+		write(1, "\n", 1);
 	}
 	return (0);
 }
-
-/*int	main(void)
-{
-	char	str1[] = "o que se passou aqui";
-	char	str2[] = "passou";
-	printf("%s", ft_strstr(str1, str2));
-	return (0);
-}*/

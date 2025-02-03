@@ -1,46 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 09:59:10 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/23 15:33:02 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/16 10:31:06 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/16 17:25:18 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find)
+void	ft_putchar(char c)
 {
-	int	i;
-	int	j;
+	write(1, &c, 1);
+}
 
-	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i] != '\0')
+void	ft_print_comb2(void)
+{
+	int	a;
+	int	b;
+
+	a = 0;
+	while (a <= 99)
 	{
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
+		b = a + 1;
+		while (b <= 99)
 		{
-			j++;
+			ft_putchar(a / 10 + '0');
+			ft_putchar(a % 10 + '0');
+			ft_putchar(' ');
+			ft_putchar(b / 10 + '0');
+			ft_putchar(b % 10 + '0');
+			if (!(a == 98 && b == 99))
+			{
+				ft_putchar(',');
+				ft_putchar(' ');
+			}
+			b++;
 		}
-		if (to_find[j] == '\0')
-		{
-			return (str + i);
-		}
-		i++;
-		j = 0;
+		a++;
 	}
-	return (0);
 }
 
 /*int	main(void)
 {
-	char	str1[] = "o que se passou aqui";
-	char	str2[] = "passou";
-	printf("%s", ft_strstr(str1, str2));
+	ft_print_comb2();
 	return (0);
 }*/

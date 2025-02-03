@@ -1,52 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:14:16 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/21 18:30:36 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/19 11:36:45 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/19 19:16:52 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 /*#include <stdio.h>
 #include <string.h>*/
 
-int	ft_strlen(char *str)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[i] != 0)
+	while (src[i] != 0 && i < n)
 	{
+		dest[i] = src[i];
 		i++;
 	}
-	return (i);
-}
-
-char	*ft_strcat(char *dest, char *src)
-{
-	int	i;
-	int	dest_len;
-
-	i = 0;
-	dest_len = ft_strlen(dest);
-	while (src[i] != 0)
+	while (i < n)
 	{
-		dest[dest_len + i] = src[i];
+		dest[i] = '\0';
 		i++;
 	}
-	dest[dest_len + i] = '\0';
 	return (dest);
 }
 
 /*int	main(void)
 {
-	char	str1[8] = " o juiz";
-	char	str2[40] = "sou eu";
+	char	og_str[] = "Hell";
+	char	new_str[] = "Mano1";
+	char	test[] = "Mano2";
 
-	printf("%s %s\n", str2, str1);
-	ft_strcat(str2, str1);
-	printf("%s", str2);
+	printf("%s\n", ft_strncpy(new_str, og_str, 3));
+	printf("%s\n", strncpy(test, og_str, 3));
+	printf("%s\n", ft_strncpy(new_str, og_str, 5));
+	printf("%s\n", strncpy(test, og_str, 5));
+	printf("%s\n", ft_strncpy(new_str, og_str, 15));
+	printf("%s\n", strncpy(test, og_str, 5));
+	return (0);
 }*/

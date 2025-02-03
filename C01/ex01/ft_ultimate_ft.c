@@ -1,43 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_ultimate_ft.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 19:02:50 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/23 16:22:34 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/17 20:05:22 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/17 20:07:28 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlen(char *src)
+void	ft_ultimate_ft(int *********nbr)
 {
-	unsigned int	x;
-
-	x = 0;
-	while (src[x] != 0)
-	{
-		x++;
-	}
-	return (x);
-}
-
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int	i;
-	unsigned int	x;
-
-	x = ft_strlen(src);
-	i = 0;
-	if (size == 0)
-	{
-		return (x);
-	}
-	while (src[i] != '\0' && i < size - 1)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (x);
+	*********nbr = 42;
 }

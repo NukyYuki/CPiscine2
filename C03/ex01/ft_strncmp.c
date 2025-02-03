@@ -1,52 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:14:16 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/21 18:30:36 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/21 16:24:40 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/23 15:43:30 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <string.h>*/
+//#include <stdio.h>
+//#include <string.h>
 
-int	ft_strlen(char *str)
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (str[i] != 0)
+	if (n == 0)
 	{
-		i++;
+		return (0);
 	}
-	return (i);
-}
-
-char	*ft_strcat(char *dest, char *src)
-{
-	int	i;
-	int	dest_len;
-
-	i = 0;
-	dest_len = ft_strlen(dest);
-	while (src[i] != 0)
+	else
 	{
-		dest[dest_len + i] = src[i];
-		i++;
+		while (s1[i] != 0 && s1[i] == s2[i] && i < n - 1)
+		{
+			i++;
+		}
 	}
-	dest[dest_len + i] = '\0';
-	return (dest);
+	return (s1[i] - s2[i]);
 }
 
 /*int	main(void)
 {
-	char	str1[8] = " o juiz";
-	char	str2[40] = "sou eu";
+	char	*str1;
+	char	*str2;
 
-	printf("%s %s\n", str2, str1);
-	ft_strcat(str2, str1);
-	printf("%s", str2);
+	str1 = "Eu sou eu";
+	str2 = "Eu ou eu";
+	printf("%i\n", strncmp(str1, str2, 5));
+	printf("%i", ft_strncmp(str1, str2, 5));
+	return (0);
 }*/

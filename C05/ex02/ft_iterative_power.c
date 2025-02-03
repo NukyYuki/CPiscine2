@@ -1,46 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 09:59:10 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/23 15:33:02 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/27 13:22:03 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/27 13:45:46 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-
-char	*ft_strstr(char *str, char *to_find)
+int	ft_iterative_power(int nb, int power)
 {
 	int	i;
-	int	j;
 
-	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i] != '\0')
+	i = nb;
+	if (power == 0)
+		return (1);
+	if (power < 0)
+		return (0);
+	while (power > 1)
 	{
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
-		{
-			j++;
-		}
-		if (to_find[j] == '\0')
-		{
-			return (str + i);
-		}
-		i++;
-		j = 0;
+		nb *= i;
+		power --;
 	}
-	return (0);
+	return (nb);
 }
-
-/*int	main(void)
+/*
+#include <stdio.h>
+int	main(void)
 {
-	char	str1[] = "o que se passou aqui";
-	char	str2[] = "passou";
-	printf("%s", ft_strstr(str1, str2));
+	printf("%d", ft_iterative_power(-2, 3));
 	return (0);
 }*/

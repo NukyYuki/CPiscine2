@@ -1,21 +1,33 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/23 12:16:32 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/23 12:22:28 by mipinhei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_strlen(char *str)
+//#include <stdio.h>
+
+int	ft_strlen(char *str)
 {
-    int    i;
+	int	i;
 
-    i = 0;
-    while (str[i] != '\0')
-    {
-        i++;
-    }
-    return (i);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 
-int    main(void)
+/*int	main(void)
 {
-    char    str[] = "Jasdo";
+	char	str[] = "Hello World";
 
-    printf("%d", ft_strlen(str));
-    return (0);
-}
+	printf("%d", ft_strlen(str));
+	return (0);
+}*/

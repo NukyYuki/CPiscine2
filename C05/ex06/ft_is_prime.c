@@ -1,43 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 19:02:50 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/23 16:22:34 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/27 16:08:14 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/27 16:42:16 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlen(char *src)
+int	ft_is_prime(int nb)
 {
-	unsigned int	x;
+	int	i;
 
-	x = 0;
-	while (src[x] != 0)
+	if (nb <= 1)
+		return (0);
+	i = nb - 1;
+	while (i > 1)
 	{
-		x++;
+		if ((nb % i) == 0)
+			return (0);
+		i--;
 	}
-	return (x);
+	return (1);
 }
-
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+/*
+#include <stdio.h>
 {
-	unsigned int	i;
-	unsigned int	x;
-
-	x = ft_strlen(src);
-	i = 0;
-	if (size == 0)
-	{
-		return (x);
-	}
-	while (src[i] != '\0' && i < size - 1)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (x);
-}
+	printf("%d", ft_is_prime(2));
+}*/

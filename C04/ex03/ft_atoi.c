@@ -1,52 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:14:16 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/21 18:30:36 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/23 18:37:11 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/29 19:15:49 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <string.h>*/
-
-int	ft_strlen(char *str)
+int	ft_atoi(char *str)
 {
 	int	i;
+	int	res;
+	int	sign;
 
 	i = 0;
-	while (str[i] != 0)
+	sign = 1;
+	res = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 	{
 		i++;
 	}
-	return (i);
-}
-
-char	*ft_strcat(char *dest, char *src)
-{
-	int	i;
-	int	dest_len;
-
-	i = 0;
-	dest_len = ft_strlen(dest);
-	while (src[i] != 0)
+	while (str[i] == '+' || str[i] == '-')
 	{
-		dest[dest_len + i] = src[i];
+		if (str[i] == '-')
+			sign *= -1;
 		i++;
 	}
-	dest[dest_len + i] = '\0';
-	return (dest);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + (str[i] - '0');
+		i++;
+	}
+	return (res * sign);
 }
-
-/*int	main(void)
+/*
+#include <stdio.h>
+int	main(void)
 {
-	char	str1[8] = " o juiz";
-	char	str2[40] = "sou eu";
-
-	printf("%s %s\n", str2, str1);
-	ft_strcat(str2, str1);
-	printf("%s", str2);
+	printf("%d", ft_atoi("+++----++1235 23"));
+	return (0);
 }*/

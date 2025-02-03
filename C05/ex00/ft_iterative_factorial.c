@@ -1,46 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 09:59:10 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/23 15:33:02 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/27 11:58:37 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/27 12:15:35 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //#include <stdio.h>
 
-char	*ft_strstr(char *str, char *to_find)
+int	ft_iterative_factorial(int nb)
 {
-	int	i;
-	int	j;
+	int	d;
 
-	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i] != '\0')
+	if (nb == 0)
+		return (1);
+	if (nb < 0)
+		return (0);
+	d = nb;
+	nb--;
+	while (nb >= 1)
 	{
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
-		{
-			j++;
-		}
-		if (to_find[j] == '\0')
-		{
-			return (str + i);
-		}
-		i++;
-		j = 0;
+		d = d * nb;
+		nb--;
 	}
-	return (0);
+	return (d);
 }
-
-/*int	main(void)
+/*
+int	main(void)
 {
-	char	str1[] = "o que se passou aqui";
-	char	str2[] = "passou";
-	printf("%s", ft_strstr(str1, str2));
+	printf("%d", ft_iterative_factorial(7));
 	return (0);
 }*/

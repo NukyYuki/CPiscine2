@@ -1,52 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:14:16 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/21 18:30:36 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/19 21:57:00 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/20 11:50:19 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <string.h>*/
+//#include <stdio.h>
 
-int	ft_strlen(char *str)
+char	*ft_strupcase(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != 0)
 	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			str[i] = str[i] - 'a' + 'A';
+		}
 		i++;
 	}
-	return (i);
-}
-
-char	*ft_strcat(char *dest, char *src)
-{
-	int	i;
-	int	dest_len;
-
-	i = 0;
-	dest_len = ft_strlen(dest);
-	while (src[i] != 0)
-	{
-		dest[dest_len + i] = src[i];
-		i++;
-	}
-	dest[dest_len + i] = '\0';
-	return (dest);
+	return (str);
 }
 
 /*int	main(void)
 {
-	char	str1[8] = " o juiz";
-	char	str2[40] = "sou eu";
+	char	str[10] = "Miguel";
 
-	printf("%s %s\n", str2, str1);
-	ft_strcat(str2, str1);
-	printf("%s", str2);
+	printf("%s\n", str);
+	ft_strupcase(str);
+	printf("%s", str);
+	return (0);
 }*/

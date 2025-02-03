@@ -1,46 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 09:59:10 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/23 15:33:02 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/19 18:08:47 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/21 10:31:48 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-
-char	*ft_strstr(char *str, char *to_find)
+int	ft_str_is_numeric(char *str)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
 	while (str[i] != '\0')
 	{
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
+		if (!(str[i] >= '0' && str[i] <= '9'))
 		{
-			j++;
-		}
-		if (to_find[j] == '\0')
-		{
-			return (str + i);
+			return (0);
 		}
 		i++;
-		j = 0;
 	}
-	return (0);
+	return (1);
 }
 
-/*int	main(void)
+/*#include <stdio.h>
+
+int	main(void)
 {
-	char	str1[] = "o que se passou aqui";
-	char	str2[] = "passou";
-	printf("%s", ft_strstr(str1, str2));
+	char	*my_str;
+	char	*my_str2;
+	char	*my_str3;
+
+	my_str = "123456789";
+	my_str2 = "123g42";
+	my_str3 = "as2343sa";
+	ft_str_is_numeric(my_str);
+	ft_str_is_numeric(my_str2);
+	ft_str_is_numeric(my_str3);
+	printf("%i\n",ft_str_is_numeric(my_str));
+	printf("%i\n",ft_str_is_numeric(my_str2));
+	printf("%i\n",ft_str_is_numeric(my_str3));
 	return (0);
 }*/

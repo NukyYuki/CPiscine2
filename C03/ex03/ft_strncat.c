@@ -1,7 +1,18 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 18:39:46 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/30 12:14:37 by mipinhei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-unsigned int	ft_strlen (char *dest)
+#include <stdio.h>
+
+unsigned int	ft_strlen(char *dest)
 {
 	unsigned int	i;
 
@@ -13,7 +24,7 @@ unsigned int	ft_strlen (char *dest)
 	return (i);
 }
 
-char 	*ft_strncat(char *dest, char *src, unsigned int nb)
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
 	unsigned int	i;
 	unsigned int	dest_len;
@@ -25,15 +36,15 @@ char 	*ft_strncat(char *dest, char *src, unsigned int nb)
 		dest[dest_len + i] = src[i];
 		i++;
 	}
-		dest[dest_len + i] = '\0';
-		return (dest);
+	dest[dest_len + i] = '\0';
+	return (dest);
 }
 
-/*int	main(void)
+int	main(void)
 {
 	char	src[] = "Joel";
-	char	dest[] = "Ola ";
+	char	dest[] = "Joel";
 
-	printf("%s", ft_strncat(dest, src, 4));
+	printf("%s", ft_strncat(dest, src, 6));
 	return (0);
-}*/
+}

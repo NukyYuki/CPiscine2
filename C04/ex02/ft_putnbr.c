@@ -1,46 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/23 09:59:10 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/23 15:33:02 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/23 13:53:48 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/23 18:23:51 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
+#include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find)
+void	ft_putchar(char c)
 {
-	int	i;
-	int	j;
+	write(1, &c, 1);
+}
 
-	i = 0;
-	j = 0;
-	if (to_find[j] == '\0')
-		return (str);
-	while (str[i] != '\0')
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
 	{
-		while (str[i + j] == to_find[j] && str[i + j] != '\0')
-		{
-			j++;
-		}
-		if (to_find[j] == '\0')
-		{
-			return (str + i);
-		}
-		i++;
-		j = 0;
+		write(1, "-2147483648", 11);
 	}
-	return (0);
+	else
+	{
+		if (nb < 0)
+		{
+			nb = -nb;
+			ft_putchar('-');
+		}
+		if (nb < 10)
+		{
+			ft_putchar(nb + '0');
+		}
+		else
+		{
+			ft_putnbr(nb / 10);
+			ft_putnbr(nb % 10);
+		}
+	}
 }
 
 /*int	main(void)
 {
-	char	str1[] = "o que se passou aqui";
-	char	str2[] = "passou";
-	printf("%s", ft_strstr(str1, str2));
+	ft_putnbr(48867);
 	return (0);
 }*/

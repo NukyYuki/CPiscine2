@@ -1,52 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mipinhei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 17:14:16 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/01/21 18:30:36 by mipinhei         ###   ########.fr       */
+/*   Created: 2025/01/18 20:02:59 by mipinhei          #+#    #+#             */
+/*   Updated: 2025/01/19 01:28:43 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*#include <stdio.h>
-#include <string.h>*/
+//#include <stdio.h>
 
-int	ft_strlen(char *str)
+char	*ft_strcpy(char *dest, char *src)
 {
 	int	i;
 
 	i = 0;
-	while (str[i] != 0)
-	{
-		i++;
-	}
-	return (i);
-}
-
-char	*ft_strcat(char *dest, char *src)
-{
-	int	i;
-	int	dest_len;
-
-	i = 0;
-	dest_len = ft_strlen(dest);
 	while (src[i] != 0)
 	{
-		dest[dest_len + i] = src[i];
+		dest[i] = src[i];
 		i++;
 	}
-	dest[dest_len + i] = '\0';
+	dest[i] = '\0';
 	return (dest);
 }
 
-/*int	main(void)
+/*#include <string.h>
+int	main(void)
 {
-	char	str1[8] = " o juiz";
-	char	str2[40] = "sou eu";
+	char	*str1;
+	char	str2[40];
+	char	str3[40];
 
-	printf("%s %s\n", str2, str1);
-	ft_strcat(str2, str1);
-	printf("%s", str2);
+	str1 = "Olaiaaaaaaaaaaaaaaaaaaaa";
+//	str2 = "CONTos";
+	//str2 =	ft_strcpy(str2, str1);
+	//str3 =  strcpy(str2, str1);
+
+	printf("ft_strcpy: %s\nOG strcpy: %s\n", ft_strcpy(str2, str1));
+	printf("OG strcpy: %s\n")strcpy(str2, str1));
+	return (0);
 }*/
