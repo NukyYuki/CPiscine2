@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 10:30:56 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/02/03 12:54:24 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/02/04 13:27:24 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	lenghts(int nbr, char *base, int len)
 	base_len = ft_strlen(base);
 	if (nbr < 0)
 	{
-		nb = nbr * -1;
+		nb = (unsigned int)nbr;
 		len++;
 	}
 	else
@@ -54,8 +54,9 @@ void	putnbr_base(int nbr, char *base, char *nbrf)
 	nb = nbr;
 	base_len = ft_strlen(base);
 	len_nbrf = lenghts(nbr, base, 0);
-	i = 0;
+	nbrf[len_nbrf] = '\0';
 	len_nbrf--;
+	i = 0;
 	if (nb < 0)
 	{
 		nb *= -1;

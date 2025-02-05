@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 12:18:04 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/02/01 23:52:13 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/02/05 13:04:16 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,10 @@ char	**ft_split(char *str, char *charset)
 	int		arr_size;
 	int		i;
 
+	arr_size = 0;
+	str_arr = NULL;
 	arr_size = count_words(str, charset);
-	str_arr = (char **)malloc(sizeof(char *) * arr_size + 1);
+	str_arr = malloc(sizeof(char *) * (arr_size + 1));
 	if (!str_arr)
 		return (0);
 	i = 0;
@@ -106,26 +108,23 @@ char	**ft_split(char *str, char *charset)
 	str_arr[i] = 0;
 	return (str_arr);
 }
-/*#include <stdio.h>
+#include <stdio.h>
 int	main(void)
 {
 	int	i;
-	char	**arr;
+	char	**arr = NULL;
+	char	str[] = "Hello WorldOd d";
+	char	set[] = " ";
 
-	arr = ft_split("Hello World", " ");
+	arr = ft_split(str, set);
 	i = 0;
 	while (arr[i])
 	{
 		printf("%s\n", arr[i]);
 		i++;
 	}
-	i = 0;
-	while (arr[i])
-	{
-	free(arr[i]);
-	i++;
-	}
-	free(arr[i]);
+	while (--i >= 0)
+		free(arr[i]);
 	free(arr);
 	return (0);
-}*/
+}

@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@studen.42porto.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 10:50:03 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/02/02 10:49:59 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:30:41 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char	*ft_strjoin(int size, char **strs, char *sep)
 	*str_tt = '\0';
 	return (str_tt - tt_len);
 }
-/*
+
 #include <stdio.h>
 int	main(void)
 {
@@ -86,8 +86,8 @@ int	main(void)
 	char	sep[] = {"--"};
 	char	*str;
 
-	str = ft_strjoin(4, strs, sep);
+	str = ft_strjoin(0, strs, sep);
 	printf("%s", str);
 	free (str);
 	return (0);
-}*/
+}

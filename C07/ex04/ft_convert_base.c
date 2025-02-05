@@ -6,7 +6,7 @@
 /*   By: mipinhei <mipinhei@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 13:14:28 by mipinhei          #+#    #+#             */
-/*   Updated: 2025/02/03 12:55:52 by mipinhei         ###   ########.fr       */
+/*   Updated: 2025/02/04 16:26:28 by mipinhei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,25 +108,27 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	char	*sfnbr;
 	int		sfnbr_len;
 
-	if (check(base_from) == 0 || check(base_to) == 0)
+	if (nbr == 0 || *nbr == '\0' || check(base_from) == 0
+		|| check(base_to) == 0)
 		return (0);
 	givnbr = ft_atoi_base(nbr, base_from);
 	sfnbr_len = lenghts(givnbr, base_to, 0);
-	sfnbr = malloc(sizeof(char) * sfnbr_len);
+	sfnbr = malloc(sizeof(char) * (sfnbr_len + 1));
 	if (!sfnbr)
 		return (0);
-	sfnbr[sfnbr_len] = 0;
 	putnbr_base(givnbr, base_to, sfnbr);
 	return (sfnbr);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int	main(int ac, char **av)
 {
 	char	*str;
 
 	(void)ac;
 	str = ft_convert_base(av[1], av[2], av[3]);
+	if (!str)
+		return (1);
 	printf("%s", str);
 	free (str);
 	return (0);
-}
+}*/
