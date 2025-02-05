@@ -108,7 +108,7 @@ char	**ft_split(char *str, char *charset)
 	str_arr[i] = 0;
 	return (str_arr);
 }
-#include <stdio.h>
+/*#include <stdio.h>
 int	main(void)
 {
 	int	i;
@@ -127,4 +127,4 @@ int	main(void)
 		free(arr[i]);
 	free(arr);
 	return (0);
-}
+}*/
